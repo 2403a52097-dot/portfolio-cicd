@@ -1,0 +1,32 @@
+
+name: Portfolio CI Pipeline
+
+# Trigger workflow whenever code is pushed or a pull request is created
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run Portfolio Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Get source code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Step 3: Run unit tests
+      - name: Execute Unit Tests
+        run: npm test
