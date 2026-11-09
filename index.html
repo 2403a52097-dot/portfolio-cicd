@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Portfolio | Version 2</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <h2 class="logo">MyPortfolio.</h2>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home -->
+    <section id="home" class="hero">
+        <div>
+            <h1>Hello, I'm a Student Developer</h1>
+
+            <h2>AI & ML Enthusiast | Web Developer</h2>
+
+            <p>
+                I enjoy building creative applications
+                using modern technologies.
+            </p>
+
+            <a href="#projects" class="btn">
+                Explore My Projects
+            </a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About Me</h2>
+
+        <p>
+            I am a B.Tech Computer Science student
+            passionate about Artificial Intelligence,
+            Machine Learning, Python and Web Development.
+            I enjoy learning new technologies and
+            developing real-world projects.
+        </p>
+
+        <div class="skills">
+            <span>Python</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Machine Learning</span>
+            <span>React</span>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2>My Projects</h2>
+
+        <div class="project-container">
+
+            <div class="project">
+                <h3>ProjectSphere</h3>
+                <p>
+                    A subject-based academic project
+                    title recommendation system.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>TruthLens</h3>
+                <p>
+                    An NLP-based claim verification
+                    application.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>CardioAI</h3>
+                <p>
+                    An AI-based application for
+                    cardiovascular risk prediction.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Expense Tracker</h3>
+                <p>
+                    A web application to manage and
+                    analyze personal expenses.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+
+        <form id="contactForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                required
+            >
+
+            <textarea
+                id="message"
+                placeholder="Your Message"
+                required
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+
+        </form>
+
+        <p id="result"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 My Portfolio | Version 2</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
