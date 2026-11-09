@@ -1,32 +1,62 @@
 
-name: Portfolio CI Pipeline
+name: Portfolio CI/CD Pipeline
 
-# Trigger workflow whenever code is pushed or a pull request is created
 on:
   push:
     branches:
       - main
-
   pull_request:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   test:
-    name: Run Portfolio Unit Tests
+    name: Run Unit Tests
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Get source code
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Install Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # Step 3: Run unit tests
       - name: Execute Unit Tests
         run: npm test
+
+  deploy:
+    name: Deploy Portfolio
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Website Files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy Website
+        id: deployment
+        uses: actions/deploy-pages@v4
